@@ -3,6 +3,7 @@ import config from "./config/config.js"  // Import config
 import { logMiddleware } from "./middleware/logger.js"
 import { validateApiKey, validateApiKeyProduction } from "./middleware/apiKey.js"  // Import API key middleware
 import userRoutes from "./routes/userRoutes.js"
+import movieRoutes from "./routes/movieRoutes.js"
 import { initializeDatabase } from "./config/database.js"
 
 const app = express()
@@ -22,7 +23,8 @@ app.get('/', (req, res) => {
 		version: "1.0.0",
 		environment: config.nodeEnv,
 		endpoints: {
-			users: "/users"
+			users: "/users",
+			movies: "/movies"
 		}
 	})
 })
@@ -39,6 +41,7 @@ app.get('/health', (req, res) => {
 // Protected routes (API key required)
 // Option 1: Protect all /users routes
 app.use('/users', validateApiKey, userRoutes)
+app.use('/movies', validateApiKey, movieRoutes)
 
 // Option 2: Only protect in production (easier for development)
 // app.use('/users', validateApiKeyProduction, userRoutes)
@@ -73,6 +76,11 @@ app.listen(config.port, () => {
 	console.log(`  POST   /users         - Create new user (protected)`)
 	console.log(`  PUT    /users/:id     - Update user (protected)`)
 	console.log(`  DELETE /users/:id     - Delete user (protected)`)
+	console.log(`  GET    /movies        - Get all movies (protected)`)
+	console.log(`  GET    /movies/:id    - Get movie by ID (protected)`)
+	console.log(`  POST   /movies        - Create new movie (protected)`)
+	console.log(`  PUT    /movies/:id    - Update movie (protected)`)
+	console.log(`  DELETE /movies/:id    - Delete movie (protected)`)
 })
 
 export default app
