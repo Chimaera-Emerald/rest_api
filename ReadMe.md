@@ -1,3 +1,4 @@
+```bash
 API/
 ├── src/
 │   ├── config/
@@ -22,3 +23,4 @@ API/
 ├── database.sqlite
 ├── package.json
 └── README.md
+```
