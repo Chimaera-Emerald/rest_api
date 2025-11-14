@@ -1,24 +1,21 @@
 {
   "name": "rest-api",
   "version": "1.0.0",
+  "description": "REST API with Express, SQLite, and JWT",
+  "main": "src/index.js",
   "type": "module",
-  "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": ["api", "rest", "express", "sqlite"],
+  "author": "",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Chimaera-Emerald/rest_api.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Chimaera-Emerald/rest_api/issues"
-  },
-  "homepage": "https://github.com/Chimaera-Emerald/rest_api#readme",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
